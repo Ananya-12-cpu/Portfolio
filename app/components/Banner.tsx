@@ -24,11 +24,9 @@ function PortfolioBanner() {
        {/* Buttons Section */}
     <div className="mt-10 space-x-4">
             <button className="bg-indigo-500 text-white px-6 py-2 rounded-lg hover:bg-indigo-600">
-              Learn More
+             Get Resume
             </button>
-            <button className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600">
-              Contact Me
-            </button>
+           
           </div>
     </div>
 
