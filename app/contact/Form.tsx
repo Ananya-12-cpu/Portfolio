@@ -1,30 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 
 function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data: any) => console.log(data);
 
-  const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    // Form submission logic goes here
-    console.log("Form submitted", formData);
-  };
+  console.log(watch("example"));
   return (
     <>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Name Input */}
         <div>
           <label
@@ -35,14 +26,13 @@ function ContactForm() {
           </label>
           <input
             type="text"
-            name="name"
-            id="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
+            // {...register("name")}
+            {...register("name", { required: true })} 
+            // required
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="Your Name"
           />
+          {errors.name && <span className="text-sm text-red-600">This field is required</span>}
         </div>
 
         {/* Email Input */}
@@ -55,14 +45,12 @@ function ContactForm() {
           </label>
           <input
             type="email"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
+            {...register("email", { required: true })}
+            // required
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="Your Email"
           />
+          {errors.email && <span className="text-sm text-red-600">This field is required</span>}
         </div>
 
         {/* Subject Input */}
@@ -75,35 +63,29 @@ function ContactForm() {
           </label>
           <input
             type="text"
-            name="subject"
-            id="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
+            {...register("subject", { required: true })}
+            // required
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="Subject"
           />
+          {errors.subject && <span className="text-sm text-red-600">This field is required</span>}
         </div>
 
         {/* Message Textarea */}
-        <div>
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="message"
-          >
-            Message
-          </label>
-          <textarea
-            name="message"
-            id="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            // rows="4"
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="Your Message"
-          />
-        </div>
+        {/* <div> */}
+        <label
+          className="block text-sm font-medium text-gray-700"
+          htmlFor="message"
+        >
+          Message
+        </label>
+        <textarea
+          {...register("message")}
+          // required
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          placeholder="Your Message"
+        />
+        {/* </div> */}
 
         {/* Submit Button */}
         <div>
