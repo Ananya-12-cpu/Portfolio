@@ -13,7 +13,7 @@ function PortfolioBanner() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl p-8">
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-3">
-            Hey, I'm <span className="text-indigo-500">Ananya</span>
+            Hey, I'm <span className="text-indigo-600">Ananya</span>
           </h1>
           <p className="mt-6 text-gray-400 text-sm max-w-lg">
             Crafting Engaging Digital Experiences. Transform your vision into

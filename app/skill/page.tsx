@@ -10,8 +10,8 @@ function SkillPage() {
       {
         label: 'My Skills',
         data: [10, 10, 8,5, 8, 5,9],
-        backgroundColor: 'rgba(75, 192, 192, 0.5)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: '#5a67d0',
+        borderColor: '#5a67d0',
         borderWidth: 1,
         
       },
