@@ -25,10 +25,13 @@ function PortfolioBanner() {
           </p>
           {/* Buttons Section */}
           <div className="mt-10 space-x-4">
-            <SolidButton
+            {/* <SolidButton
               text="Get Resume"
               RenderFunction={() => router.push("/resume")}
-            />
+            /> */}
+             <a href="/resume.pdf" download>
+              <SolidButton text="Get Resume" />
+            </a>
             <OutlineButton
               text="My Skills"
               RenderFunction={() => router.push("/skill")}
